@@ -21,25 +21,28 @@ def get_user_input():
 
 
 def find_min_max(t):
-    t = sort_temperature(t)
     return [float(t[0]), float(t[len(t) - 1])]
 
 
 def sort_temperature(t):
-    t.sort()
-    print(t)
-    return t
+    return t.sort()
 
 
-#def calc_median_temperature(t):
-
+def calc_median_temperature(t):
+    if len(t)%2==0:
+        a = int(len(t)/2)
+        return (t[a]+t[a+1])/2
+    else:
+        return t[int((len(t)-1)/2)]
 
 
 display_main_menu()
 t = get_user_input()
+sort_temperature(t)
+print(t)
 print("average = " + str(calc_average(t)))
 print("min , max = " + str(find_min_max(t)))
-#print("median = " + str(calc_median_temperature(t)))
+print("median = " + str(calc_median_temperature(t)))
 
 # Part 1
 print("\nBMI")
